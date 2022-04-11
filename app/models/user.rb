@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  enum role: [ :admin, :gogetter ]
 
   def generate_jwt
   JWT.encode({ id: id,
